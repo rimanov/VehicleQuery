@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title Active Sessions
+    link(rel ="stylesheet" href="style.css")
+    style.
+        th {
+          color:black;
+          font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif	;
+          text-align: center;
+        }
+        td {
+          color:gray;
+          text-align: center;
+          font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif	;
+        }
+        table.center {
+            margin-left:auto;
+            margin-right:auto;
+            }
+        p {
+          text-align: center;
+        }
+  body
+
+  p sort by user & login date:
+      select
+        each session in sessions
+          option(value="0", selected= true) #{session.name} #{session.date}
+
+  table(class="center")
+    tr
+      th  Session ID |
+      th  User Name  |
+      th  Width  |
+      th  Time  |
+      th  Time created  |
+      th  Session Status
+    tr
+    tr
+      tr
+    for session in sessions
+      td #{session.sessionID}
+      td #{session.name}
+      td #{session.width}
+      td #{session.time}
+      td #{session.date}
+      td #{session.sessionStatus}
+      tr
+    tr
+  table
+
+p no active users :(

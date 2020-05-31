@@ -1,0 +1,77 @@
+doctype html
+html
+  head
+    title Data Review
+    link(rel ="stylesheet" href="style.css")
+    style.
+        th {
+          color:black;
+          font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif	;
+          text-align: center;
+        }
+        td {
+          color:gray;
+          text-align: center;
+          font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif	;
+        }
+        table.center {
+            margin-left:auto;
+            margin-right:auto;
+            }
+
+        p {
+          text-align: center;
+        }
+
+
+  body
+
+
+  p search:
+    input(type='text' id='myInput' placeholder='query')
+
+  script.
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+
+      table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1)
+                  {
+                    tr[i].style.display = "";
+                      }
+                        else
+                          {
+                            tr[i].style.display = "none";
+                              }
+                                  }
+                                    }
+                                      }
+
+  table(class='center' id='myTable' onkeyup="myFunction()")
+    tr
+      th  Session ID
+      th  User Name
+      th  Type
+      th  Value
+      th  Time
+      th  Time Created
+    tr
+    tr
+      tr
+    for event in events
+      td #{event.sessionID}
+      td #{event.name}
+      td #{event.type}
+      td #{event.value}
+      td #{event.time}
+      td #{event.date}
+      tr
+    tr
+  table
